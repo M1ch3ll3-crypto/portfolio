@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock — Michelle Oluyemi</title>
+  <style>
+    body{background:#1a0f2a;color:#e9b8ff;font-family:system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;margin:0}
+    .clock{font-size:3.5rem;font-weight:700;text-shadow:0 0 20px rgba(232,180,255,.4);letter-spacing:3px}
+    .date{color:#d0b8e8;margin-top:10px;font-size:1.1rem}
+    a{color:#f0b8ff;margin-top:30px;text-decoration:none;border:1px solid rgba(168,85,247,.35);padding:10px 16px;border-radius:999px}
+    a:hover{background:rgba(168,85,247,.15)}
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock">00:00:00</div>
+  <div class="date" id="date">Loading date...</div>
+  <a href="projects.html">← Back to Projects</a>
+
+<script>
+function updateClock() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, '0');
+  const m = String(now.getMinutes()).padStart(2, '0');
+  const s = String(now.getSeconds()).padStart(2, '0');
+  document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+  
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('date').textContent = now.toLocaleDateString('en-US', options);
+}
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+</body>
+</html>

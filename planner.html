@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Planner – Michelle Oluyemi</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<style>
+  /* Planner styles – blends with your Portfolio.website style.css */
+  .planner-wrap{max-width:720px;margin:0 auto;padding:24px 20px 60px}
+  .planner-title{font-size:1.6rem;margin-bottom:4px}
+  .planner-sub{opacity:.75;font-size:14px;margin-bottom:18px}
+  .planner-card{background:var(--card-bg, #fff);border-radius:18px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,.06);margin-bottom:20px}
+  .planner-card h2{font-size:1.1rem;margin-bottom:10px}
+  .planner-label{display:block;font-size:13px;font-weight:600;margin:12px 0 5px}
+  .planner-input,.planner-select{width:100%;padding:12px;border:1.5px solid #e8d9f5;border-radius:12px;font-size:15px;background:#fff;font-family:inherit}
+  .planner-input:focus,.planner-select:focus{outline:none;border-color:#8b5cf6}
+  .btn-add{cursor:pointer;border:none;border-radius:12px;padding:12px 18px;font-weight:700;font-size:15px;background:#8b5cf6;color:#fff;width:100%;margin-top:14px}
+  .btn-add:hover{opacity:.92}
+  #taskList{list-style:none;margin:0;padding:0}
+  .task-item{display:flex;align-items:center;gap:10px;padding:14px;border:1px solid #f0e4ff;border-radius:14px;margin-bottom:10px;background:#fcf8ff}
+  .task-item.complete{opacity:.6}
+  .task-item.complete .task-name{text-decoration:line-through}
+  .task-info{flex:1}
+  .task-name{font-weight:600}
+  .task-meta{font-size:12px;opacity:.8}
+  .tag{display:inline-block;background:#f0e4ff;color:#5b2fa8;font-size:11px;padding:2px 8px;border-radius:20px;margin-right:6px}
+  .icon-btn{background:none;border:none;padding:6px 10px;font-size:18px;border-radius:8px;cursor:pointer}
+  .icon-btn:hover{background:#f0e4ff}
+  .empty{opacity:.7;text-align:center;padding:16px;font-size:14px}
+  .nav-links a.active{font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- PETALS CONTAINER -->
+<div class="blossoms" id="blossoms" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand"><span>🌸</span> My Portfolio</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav>
+      <ul class="nav-links" id="siteNav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="planner.html" class="active">Academic Planner</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="planner-wrap">
+  <h1 class="planner-title">Academic Planner</h1>
+  <p class="planner-sub">Michelle Oluyemi – COS 106 Term Project – MIVA Open University</p>
+
+  <div class="planner-card">
+    <label class="planner-label" for="taskName">Task name</label>
+    <input class="planner-input" id="taskName" placeholder="e.g. Submit COS 106 Portfolio">
+
+    <label class="planner-label" for="taskCourse">Course</label>
+    <select class="planner-select" id="taskCourse">
+      <option value="">Select course</option>
+      <option>Problem Solving</option>
+      <option>Nigerian People and Culture</option>
+      <option>Elementary Mathematics II – Calculus</option>
+      <option>General Physics II – Electricity & Magnetism</option>
+      <option>General Practical Physics II</option>
+      <option>Introduction to Web Technologies</option>
+      <option>Communication in English II</option>
+    </select>
+
+    <label class="planner-label" for="taskDate">Due date</label>
+    <input class="planner-input" type="date" id="taskDate">
+
+    <button class="btn-add" id="addBtn">Add Task</button>
+  </div>
+
+  <div class="planner-card">
+    <h2>My Tasks</h2>
+    <ul id="taskList"></ul>
+    <p id="emptyMsg" class="empty">No tasks yet. Add one above.</p>
+  </div>
+</main>
+
+<script src="script.js"></script>
+<script>
+// COS 106 – Academic Planner
+let tasks = JSON.parse(localStorage.getItem('miva_tasks_michelle') || '[]');
+
+const nameInput = document.getElementById('taskName');
+const courseInput = document.getElementById('taskCourse');
+const dateInput = document.getElementById('taskDate');
+const listEl = document.getElementById('taskList');
+const emptyMsg = document.getElementById('emptyMsg');
+
+document.getElementById('addBtn').onclick = addTask;
+
+function save(){ localStorage.setItem('miva_tasks_michelle', JSON.stringify(tasks)); }
+
+function addTask(){
+  const name = nameInput.value.trim();
+  const course = courseInput.value;
+  const date = dateInput.value;
+  if(!name){ alert('Please enter a task name'); return; }
+  tasks.push({id: Date.now(), name, course, date, done:false});
+  nameInput.value = ''; courseInput.value = ''; dateInput.value = '';
+  save(); render();
+}
+
+function toggleComplete(id){
+  const t = tasks.find(t => t.id === id);
+  if(t){ t.done = !t.done; save(); render(); }
+}
+
+function deleteTask(id){
+  tasks = tasks.filter(t => t.id !== id);
+  save(); render();
+}
+
+function render(){
+  listEl.innerHTML = '';
+  emptyMsg.style.display = tasks.length ? 'none' : 'block';
+  tasks.forEach(t => {
+    const li = document.createElement('li');
+    li.className = 'task-item' + (t.done ? ' complete' : '');
+    li.innerHTML = `
+      <div class="task-info">
+        <div class="task-name">${t.name}</div>
+        <div class="task-meta">
+          ${t.course ? `<span class="tag">${t.course}</span>` : ''}
+          ${t.date ? 'Due: ' + t.date : 'No due date'}
+        </div>
+      <button class="icon-btn" onclick="toggleComplete(${t.id})" title="Mark complete">✓</button>
+      <button class="icon-btn" onclick="deleteTask(${t.id})" title="Delete">✕</button>
+    `;
+    listEl.appendChild(li);
+  });
+}
+
+if(tasks.length === 0){
+  tasks = [
+    {id:1, name:'Submit COS 106 Portfolio Website', course:'Introduction to Web Technologies', date:'', done:false},
+    {id:2, name:'Read Calculus notes Ch.3', course:'Elementary Mathematics II – Calculus', date:'', done:false}
+  ];
+  save();
+}
+render();
+</script>
+</body>
+</html>
