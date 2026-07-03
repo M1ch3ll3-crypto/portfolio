@@ -19,3 +19,14 @@ function createPetal() {
 
 // Only 1 petal every 1.5 seconds = very calm
 setInterval(createPetal, 1500);
+}
+
+// Hamburger menu toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+}
