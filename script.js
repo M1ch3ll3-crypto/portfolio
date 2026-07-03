@@ -1,32 +1,35 @@
-// Pink Petals - Slow & Consistent on All Devices
-const blossoms = document.querySelector('.blossoms');
-
+// Petals Animation
 function createPetal() {
-    const petal = document.createElement('div');
-    petal.classList.add('petal');
-    petal.innerHTML = '🌸';
-    petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.animationDuration = Math.random() * 4 + 10 + 's'; // 10-14 seconds = super slow
-    petal.style.opacity = Math.random() * 0.3 + 0.2;
-    petal.style.fontSize = Math.random() * 3 + 10 + 'px';
-    
-    blossoms.appendChild(petal);
-    
-    setTimeout(() => {
-        petal.remove();
-    }, 14000);
+  const petal = document.createElement('div');
+  petal.classList.add('petal');
+  petal.style.left = Math.random() * 100 + 'vw';
+  petal.style.animationDuration = Math.random() * 3 + 5 + 's'; // 5-8s slow fall
+  petal.innerHTML = '🌸';
+  petal.style.fontSize = Math.random() * 10 + 10 + 'px';
+  document.body.appendChild(petal);
+  
+  setTimeout(() => {
+    petal.remove();
+  }, 8000);
 }
 
-// Only 1 petal every 1.5 seconds = very calm
-setInterval(createPetal, 1500);
-}
+// Create petals every 300ms
+setInterval(createPetal, 300);
 
-// Hamburger menu toggle
+// Hamburger menu toggle - THIS MAKES THE ☰ WORK
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-if (navToggle) {
+if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
   });
 }
+
+// Close menu when you click a link
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+  });
+});
