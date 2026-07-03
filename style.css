@@ -162,6 +162,20 @@ body {
   padding: 0 10px;
 }
 
+.hero .greeting {
+  color: var(--muted);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  color: var(--pink);
+  margin-bottom: 6px;
+  margin-top: 0;
+}
+
 .btn-primary, .btn-secondary {
   display: block;
   width: 100%;
