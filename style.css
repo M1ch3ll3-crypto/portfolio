@@ -101,6 +101,43 @@ body {
   color: var(--purple);
 }
 
+.nav-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: #f6c8ff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Show hamburger ONLY on mobile */
+@media (max-width: 720px) {
+  .nav-toggle {
+    display: block !important;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    z-index: 101;
+  }
+  
+  .nav-links {
+    display: none !important;
+  }
+  
+  .nav-links.open {
+    display: flex !important;
+    position: absolute;
+    top: 62px;
+    right: 20px;
+    flex-direction: column;
+    background: #24162c;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+    gap: 8px;
+    min-width: 180px;
+  }
+}
 /* hero - matches your screenshot */
 .hero {
   max-width: 620px;
