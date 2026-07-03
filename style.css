@@ -373,30 +373,58 @@ footer strong {
   background: transparent !important;
 }
 
-/* === MICHELLE'S SPARKLE NAME === */
+/* === UNIVERSAL SHINY HERO - WORKS ON ALL DEVICES === */
+/* Your name: Purple neon glow */
 .hero h1,
-.hero-title {
-  background: linear-gradient(90deg, #d8b4fe, #ffffff, #a855f7, #ffffff, #d8b4fe);
-  background-size: 200% auto;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text;
-  animation: shine 2.5s linear infinite;
+.hero-title,
+h1.hero-title {
+  color: #f3e8ff !important; /* Light purple base color */
   font-weight: 700 !important;
-  text-shadow: 0 0 30px rgba(168, 85, 247, 0.8) !important;
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px #d8b4fe,
+    0 0 20px #a855f7,
+    0 0 40px #7c3aed,
+    0 0 80px #7c3aed !important;
+  animation: breathe 3s ease-in-out infinite;
 }
 
-@keyframes shine {
-  to { background-position: 200% center; }
+/* Gentle breathing glow animation */
+@keyframes breathe {
+  0%, 100% { 
+    text-shadow: 
+      0 0 5px #fff,
+      0 0 10px #d8b4fe,
+      0 0 20px #a855f7,
+      0 0 40px #7c3aed;
+  }
+  50% { 
+    text-shadow: 
+      0 0 10px #fff,
+      0 0 20px #e9d5ff,
+      0 0 30px #c084fc,
+      0 0 50px #a855f7,
+      0 0 100px #7c3aed;
+  }
 }
 
-/* Make View Projects button PULSE */
-.btn-primary {
-  animation: pulse 2s infinite;
-  box-shadow: 0 0 25px rgba(124, 58, 237, 0.6) !important;
+/* View My Projects button: Always glowing */
+.btn-primary,
+a.btn-primary {
+  background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+  border: 2px solid #d8b4fe !important;
+  box-shadow: 
+    0 0 20px rgba(168, 85, 247, 0.8),
+    0 4px 15px rgba(124, 58, 237, 0.6) !important;
+  transition: all 0.3s ease !important;
 }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 25px rgba(124, 58, 237, 0.6); }
-  50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.9); }
+/* Button gets brighter when tapped/hovered */
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  box-shadow: 
+    0 0 35px rgba(168, 85, 247, 1),
+    0 6px 25px rgba(124, 58, 237, 0.8) !important;
+  transform: translateY(-3px) !important;
 }
