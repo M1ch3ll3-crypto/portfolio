@@ -1,172 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michelle Oluyemi — Computer Science Portfolio</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michelle Oluyemi - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="blossoms" id="blossoms"></div>
 
-<!-- PETALS CONTAINER - leave this here -->
-<div class="blossoms" id="blossoms" aria-hidden="true"></div>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand">🌸 My Portfolio</a>
+            <button class="nav-toggle" id="navToggle">≡</button>
+            <nav>
+                <ul class="nav-links" id="siteNav">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html">Academic Planner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#home" class="brand"><span>🌸</span> My Portfolio</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
-    <nav>
-      <ul class="nav-links" id="siteNav">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#planner">Academic Planner</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <main class="hero" style="max-width:560px; text-align:center">
+        
+        <img src="michelle.jpg" alt="Michelle Oluyemi" class="avatar-img">
+        
+        <p class="eyebrow">Hi, I'm</p>
+        <h1 class="hero-name">Michelle Oluyemi</h1>
+        <p class="role">Computer Science Student</p>
 
-<main id="home" class="hero container">
-  <!-- PROFILE PHOTO: put profile.jpg in the same folder as index.html -->
-  <div class="avatar-wrap">
-    <img src="profile.jpg" alt="Michelle Oluyemi" class="profile-photo">
-  </div>
+        <p class="tagline">
+            Building simple web tools that solve real-life problems with HTML, CSS & JavaScript.
+        </p>
 
-  <h1>Michelle Oluyemi 🌸</h1>
-  <p class="tagline">Computer Science student at MIVA Open University, Nigeria</p>
-  <p class="subtag">Building simple web tools that solve real-life problems with HTML, CSS & JavaScript.</p>
+        <div class="hero-cta">
+            <a href="projects.html" class="btn btn-primary">View My Projects →</a>
+            <a href="contact.html" class="btn btn-ghost" style="margin-top:12px; display:block">Contact Me</a>
+        </div>
 
-  <div class="cta-row">
-    <a href="#projects" class="btn btn-primary">View My Projects →</a>
-    <a href="#contact" class="btn btn-ghost">Contact Me</a>
-  </div>
-</main>
+        <div class="meta">
+            📍 Lagos, NG 🎓 B.Sc. Computer Science<br>
+            💻 Frontend · Web Technologies · Tooling
+        </div>
 
-<section id="about" class="container">
-  <div class="card">
-    <h2>About Me</h2>
-    <p>I'm a dedicated Computer Science student at MIVA Open University with a passion for technology and innovation. I enjoy understanding how computers, networks, and software work together to solve real-life problems.</p>
-    <p>I'm currently building my skills in <strong>HTML, CSS, and JavaScript</strong>.</p>
-  </div>
-</section>
+        <nav class="quick-explore">
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="planner.html">Planner</a>
+            <a href="contact.html">Contact</a>
+        </nav>
 
-<section id="projects" class="container">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card project">
-      <h3>Student Portfolio Website</h3>
-      <p>Responsive portfolio built with HTML/CSS. Purple cherry-blossom theme, accessible contrast.</p>
-      <span class="pill">HTML • CSS</span>
-    </div>
-    <div class="card project">
-      <h3>Academic Planner</h3>
-      <p>Simple course tracker with localStorage. Add, check off, and save your MIVA courses.</p>
-      <span class="pill">JavaScript</span>
-    </div>
-    <div class="card project">
-      <h3>Your Next Project</h3>
-      <p>Replace this card with your own work.</p>
-      <span class="pill">Coming soon</span>
-    </div>
-  </div>
-</section>
+    </main>
 
-<section id="planner" class="container">
-  <div class="card">
-    <h2>Academic Planner</h2>
-    <p class="muted" id="plannerSummary"></p>
-    <ul class="course-list" id="courseList"></ul>
-    <div class="planner-add">
-      <input id="courseInput" type="text" placeholder="Add a course, e.g. CSC 101 - Introduction to Computing">
-      <button id="addCourseBtn" class="btn btn-primary btn-sm">Add</button>
-    </div>
-  </div>
-</section>
+    <footer class="site-footer">
+        <p><strong>Michelle Oluyemi</strong><br>
+        Computer Science · Miva Open University</p>
+        <p>Built for COS 106 — Introduction to Web Technologies · © 2026 Michelle Oluyemi</p>
+    </footer>
 
-<section id="contact" class="container">
-  <div class="card">
-    <h2>Contact</h2>
-    <p>Have a project or a school collaboration? Reach out:</p>
-    <p><strong>Email:</strong> <a href="mailto:michelle.oluyemi@email.com">michelle.oluyemi@email.com</a></p>
-    <p class="muted">Replace this with your real MIVA email before submitting.</p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Michelle Oluyemi — Computer Science, MIVA Open University, Nigeria 🌸</p>
-</footer>
-
-<script>
-// --- 1. MOBILE NAV - works in Acode ---
-document.addEventListener('DOMContentLoaded', function(){
-  const navToggle = document.getElementById('navToggle');
-  const siteNav = document.getElementById('siteNav');
-  if(navToggle && siteNav){
-    navToggle.addEventListener('click', function(){
-      const open = siteNav.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    // close menu when you tap a link
-    siteNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        siteNav.classList.remove('open');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  // --- 2. ACADEMIC PLANNER ---
-  const defaultCourses = [
-    {name: 'CSC 101 - Introduction to Computer Science', done: true},
-    {name: 'MTH 101 - General Mathematics', done: false},
-    {name: 'GST 101 - Use of English', done: false},
-    {name: 'CSC 102 - Introduction to Programming', done: false}
-  ];
-  let courses = JSON.parse(localStorage.getItem('miva-planner') || 'null') || defaultCourses;
-
-  function save(){ localStorage.setItem('miva-planner', JSON.stringify(courses)); }
-  function render(){
-    const list = document.getElementById('courseList');
-    if(!list) return;
-    list.innerHTML = '';
-    courses.forEach((c,i)=>{
-      const li = document.createElement('li');
-      li.innerHTML = `<label><input type="checkbox" ${c.done?'checked':''} data-i="${i}"> ${c.name}</label>`;
-      list.appendChild(li);
-    });
-    document.querySelectorAll('#courseList input').forEach(cb=>{
-      cb.onchange = e => { courses[e.target.dataset.i].done = e.target.checked; save(); render(); }
-    });
-    document.getElementById('plannerSummary').textContent =
-      `${courses.filter(c=>c.done).length} of ${courses.length} courses completed`;
-  }
-  const addBtn = document.getElementById('addCourseBtn');
-  if(addBtn){
-    addBtn.onclick = ()=>{
-      const input = document.getElementById('courseInput');
-      if(input.value.trim()){ courses.push({name: input.value.trim(), done:false}); input.value=''; save(); render(); }
-    };
-  }
-  render();
-
-  // --- 3. FALLING PETALS ---
-  const blossomBox = document.getElementById('blossoms');
-  if (blossomBox && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const PETAL_COUNT = 12;
-    for (let i = 0; i < PETAL_COUNT; i++) {
-      const p = document.createElement('span');
-      p.className = 'petal';
-      p.textContent = '🌸';
-      p.style.left = Math.random() * 100 + 'vw';
-      p.style.animationDuration = (8 + Math.random() * 7) + 's';
-      p.style.animationDelay = (Math.random() * 8) + 's';
-      p.style.fontSize = (14 + Math.random() * 10) + 'px';
-      blossomBox.appendChild(p);
-    }
-  }
-});
-</script>
+    <script src="script.js"></script>
 </body>
-</html
+</html>
