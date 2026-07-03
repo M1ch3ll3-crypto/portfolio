@@ -1,4 +1,4 @@
-// Pink Petals - Moderate Speed for Aesthetic Vibe
+// Pink Petals - Slow & Consistent on All Devices
 const blossoms = document.querySelector('.blossoms');
 
 function createPetal() {
@@ -6,15 +6,16 @@ function createPetal() {
     petal.classList.add('petal');
     petal.innerHTML = '🌸';
     petal.style.left = Math.random() * 100 + 'vw';
-    petal.style.animationDuration = Math.random() * 3 + 5 + 's'; // 5-8 seconds = slower
-    petal.style.opacity = Math.random() * 0.5 + 0.4;
-    petal.style.fontSize = Math.random() * 6 + 14 + 'px';
+    petal.style.animationDuration = Math.random() * 4 + 10 + 's'; // 10-14 seconds = super slow
+    petal.style.opacity = Math.random() * 0.3 + 0.2;
+    petal.style.fontSize = Math.random() * 3 + 10 + 'px';
     
     blossoms.appendChild(petal);
     
     setTimeout(() => {
         petal.remove();
-    }, 8000);
+    }, 14000);
 }
 
-setInterval(createPetal, 600); // Spawn every 0.6s instead of 0.3s = less cluttered
+// Only 1 petal every 1.5 seconds = very calm
+setInterval(createPetal, 1500);
