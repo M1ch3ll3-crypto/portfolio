@@ -212,25 +212,24 @@ body {
   line-height: 2.2;
 }
 
-/* footer */
+/* footer - SOFT MUTED LAVENDER VERSION */
 footer {
   max-width: 980px;
   margin: 60px auto 0;
   padding: 32px 20px;
   text-align: center;
-  color: #f6c8ff !important; /* Force bright pink */
+  color: var(--muted); /* Soft lavender like your screenshot */
   font-size: 14px;
   border-top: 1px solid var(--border);
 }
 
 footer p {
-  color: #f6c8ff !important; /* Force ALL footer text bright pink */
+  color: var(--muted); /* Soft lavender for all text */
 }
 
 footer strong {
-  color: #ffffff !important; /* Force name pure white */
+  color: #ffffff; /* Keep name pure white */
   font-weight: 700;
-}
 }
 
 /* mobile nav */
