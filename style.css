@@ -112,6 +112,19 @@ body {
 
 /* Show hamburger ONLY on mobile */
 @media (max-width: 720px) {
+  /* FORCE DARK HEADER ON MOBILE */
+.site-header {
+  background: #0d0715 !important;
+  background-color: #0d0715 !important;
+}
+
+.header-inner {
+  background: transparent !important;
+}
+
+.nav {
+  background: transparent !important;
+}
   .nav-toggle {
     display: block !important;
     position: absolute;
