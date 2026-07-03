@@ -214,17 +214,18 @@ body {
 
 /* footer */
 footer {
-  max-width: 620px;
-  margin: 40px auto 0;
+  max-width: 980px;
+  margin: 60px auto 0;
   padding: 32px 20px;
   text-align: center;
-  color: var(--muted);
+  color: #f6c8ff; /* Bright pink for all footer text */
   font-size: 14px;
   border-top: 1px solid var(--border);
 }
 
 footer strong {
-  color: var(--text);
+  color: #ffffff; /* Pure white for "Michelle Oluyemi" */
+  font-weight: 700;
 }
 
 /* mobile nav */
