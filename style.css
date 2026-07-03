@@ -373,42 +373,18 @@ footer strong {
   background: transparent !important;
 }
 
-/* === PROFESSIONAL SUBTLE GLOW - WORKS ON ANDROID === */
-/* Your name: Elegant, not blinding */
-.hero h1,
-.hero-title,
-h1.hero-title {
-  color: #c4b5fd !important; /* Softer purple, not white */
-  font-weight: 600 !important; /* Less bold = more pro */
-  text-shadow: 
-    0 0 8px rgba(139, 92, 246, 0.5),
-    0 2px 4px rgba(0, 0, 0, 0.3) !important; /* Subtle depth */
+/* === FINAL PRO GLOW - SUBTLE + ANDROID PROOF === */
+h1, .hero h1, .hero-title {
+  color: #ddd6fe !important; /* Soft lavender - NOT white */
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 
+               0 0 6px rgba(139, 92, 246, 0.3) !important;
+  /* This is BARELY a glow. Just elegant depth. */
 }
 
-/* Remove the breathing animation - too flashy for pro */
-/* If you want a TINY bit of life, uncomment this: */
-/*
-.hero h1 {
-  animation: subtle-glow 4s ease-in-out infinite alternate;
+/* Button: Clean, no Vegas glow */
+.btn-primary {
+  background: #7c3aed !important;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3) !important;
 }
-@keyframes subtle-glow {
-  from { text-shadow: 0 0 8px rgba(139, 92, 246, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3); }
-  to { text-shadow: 0 0 12px rgba(139, 92, 246, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3); }
-}
-*/
-
-/* View My Projects button: Clean + pro glow */
-.btn-primary,
-a.btn-primary {
-  background: #7c3aed !important; /* Solid purple, not gradient */
-  border: none !important;
-  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4) !important;
-  transition: all 0.2s ease !important;
-}
-
-.btn-primary:hover,
-.btn-primary:active {
-  background: #6d28d9 !important; /* Darker on tap */
-  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.6) !important;
-  transform: translateY(-1px) !important;
 }
