@@ -47,11 +47,12 @@ body {
 
 /* header */
 .site-header {
+  background: #0d0715 !important; /* SUPER DEEP DARK - darker than body */
+  border-bottom: 1px solid #2a1a35;
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: #24162c;
-  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 12px 0;
 }
 
 .header-inner {
