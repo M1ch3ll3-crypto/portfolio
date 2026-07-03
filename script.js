@@ -1,20 +1,21 @@
-// Petals Animation
+// Petals Animation - SLOW AND ELEGANT
 function createPetal() {
   const petal = document.createElement('div');
   petal.classList.add('petal');
   petal.style.left = Math.random() * 100 + 'vw';
-  petal.style.animationDuration = Math.random() * 3 + 5 + 's'; // 5-8s slow fall
+  petal.style.animationDuration = Math.random() * 4 + 8 + 's'; // 8-12s VERY SLOW fall
   petal.innerHTML = '🌸';
-  petal.style.fontSize = Math.random() * 10 + 10 + 'px';
+  petal.style.fontSize = Math.random() * 8 + 12 + 'px';
+  petal.style.opacity = Math.random() * 0.4 + 0.6; // Some more transparent
   document.body.appendChild(petal);
   
   setTimeout(() => {
     petal.remove();
-  }, 8000);
+  }, 12000); // Remove after 12s
 }
 
-// Create petals every 300ms
-setInterval(createPetal, 300);
+// Create petals every 800ms = MUCH SLOWER SPAWN
+setInterval(createPetal, 800);
 
 // Hamburger menu toggle - THIS MAKES THE ☰ WORK
 const navToggle = document.querySelector('.nav-toggle');
