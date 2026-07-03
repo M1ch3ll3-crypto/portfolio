@@ -346,3 +346,16 @@ footer strong {
     margin-right: 12px;
   }
   
+/* FORCE DARK HEADER - OVERRIDES EVERYTHING */
+.site-header {
+  background: #0d0715 !important;
+  background-color: #0d0715 !important;
+}
+
+.header-inner {
+  background: transparent !important;
+}
+
+.nav {
+  background: transparent !important;
+}
