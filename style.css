@@ -31,19 +31,18 @@ body {
 }
 
 .petal {
-  position: absolute;
-  top: -10px;
-  color: #ff69b4;
-  font-size: 18px;
-  opacity: 0.8;
+  position: fixed;
+  top: -50px;
   animation: fall linear forwards;
+  pointer-events: none;
+  z-index: 1;
 }
 
 @keyframes fall {
   to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0.3;
+    transform: translateY(105vh) rotate(360deg);
   }
+}
 }
 
 /* header */
