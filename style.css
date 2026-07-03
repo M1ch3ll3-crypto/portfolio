@@ -1,0 +1,177 @@
+/* COS 106 - Michelle Oluyemi - Dark Blossom v2 */
+
+:root{
+  --bg:#2b1b34;
+  --bg-2:#22132a;
+  --text:#e9d5f5;
+  --muted:#c5a3d9;
+  --pink:#f6c8ff;
+  --purple:#a855f7;
+  --purple-deep:#7c3aed;
+  --border:#3d2450;
+  --radius:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6;
+}
+
+/* falling petals */
+.blossoms{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.petal{position:absolute;top:-40px;font-size:18px;opacity:.75;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.25}}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:20;background:#24162c;border-bottom:1px solid var(--border)}
+.header-inner{max-width:980px;margin:0 auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;color:var(--pink);text-decoration:none;font-size:1.15rem;display:flex;align-items:center;gap:8px}
+.nav-toggle{display:none;background:#1a0f22;border:1px solid var(--border);color:var(--pink);font-size:20px;padding:8px 14px;border-radius:14px;cursor:pointer}
+.nav-links{list-style:none;display:flex;gap:24px}
+.nav-links a{color:var(--text);text-decoration:none;font-size:14px;opacity:.9}
+.nav-links a:hover,.nav-links a.active{color:var(--purple)}
+
+/* hero - matches your screenshot */
+.hero{max-width:520px;margin:0 auto;padding:48px 20px 70px;text-align:center;position:relative;z-index:1}
+.avatar{
+  width:150px;height:150px;margin:0 auto 24px;border-radius:50%;
+  background:linear-gradient(145deg,#b985f7,#7c3aed);
+  padding:6px;box-shadow:0 0 40px rgba(168,85,247,.25)
+}
+.avatar-inner{
+  width:100%;height:100%;border-radius:50%;background:#f3e8ff;
+  display:flex;align-items:center;justify-content:center;
+  color:#e2b8ff;font-size:48px;font-weight:700;overflow:hidden
+}
+.avatar-inner img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.hero h1{font-size:2.4rem;color:var(--pink);margin-bottom:6px}
+.hero .role{color:var(--muted);font-size:1.1rem;margin-bottom:16px;font-weight:600}
+.hero .tagline{color:#c9a8da;font-size:1.05rem;margin-bottom:32px;padding:0 10px}
+
+.btn-primary,.btn-secondary{
+  display:block;width:100%;padding:18px;border-radius:999px;
+  font-size:1.05rem;font-weight:700;text-decoration:none;text-align:center;
+  margin-bottom:14px;transition:transform .15s, opacity .15s
+}
+.btn-primary{background:var(--purple-deep);color:#fff}
+.btn-secondary{background:#1a1022;color:var(--pink);border:1.5px solid #3a2650}
+.btn-primary:hover,.btn-secondary:hover{transform:translateY(-2px);opacity:.95}
+
+.meta{margin-top:28px;color:var(--muted);font-size:14px;line-height:2.2}
+
+/* generic cards for About/Projects/Planner/Contact - still works */
+.card{background:var(--bg-2);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:0 4px 24px rgba(0,0,0,.25)}
+input,textarea{width:100%;padding:13px;border:1.5px solid #4a2d5c;border-radius:14px;background:#2f1b3c;color:var(--text);font-family:inherit;font-size:15px}
+input::placeholder,textarea::placeholder{color:#b08bc3}
+
+/* mobile nav */
+@media(max-width:720px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:62px;right:20px;flex-direction:column;background:#24162c;border:1px solid var(--border);border-radius:16px;padding:8px;min-width:190px}
+  .nav-links.open{display:flex}
+  .nav-links li a{display:block;padding:10px 12px}
+}
+
+/* --- Academic Planner readability fix --- */
+.card, .planner-card, .task-card {
+  color: #2b1b34;
+}
+.card h2, .card h3, .card label,
+.planner-card h2, .planner-card label {
+  color: #5a2a7a !important;
+  font-weight: 700;
+  opacity: 1;
+}
+.card input, .card select, .card textarea,
+.planner-card input, .planner-card select {
+  background: #fff !important;
+  color: #2b1b34 !important;
+  border-color: #d5b8e8 !important;
+}
+.card input::placeholder, .card textarea::placeholder {
+  color: #8a6a98 !important;
+  opacity: 1;
+}
+/* task list items */
+.task-item, .task-title, .my-tasks li, #taskList li {
+  color: #2b1b34 !important;
+  font-weight: 600;
+}
+.task-course, .task-meta, .task-date {
+  color: #6b3a8a !important;
+  opacity: 1;
+}
+.avatar-img{
+  width:120px; height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #f8c6d8;
+  box-shadow:0 0 20px rgba(255,182,193,0.3);
+  display:block;
+  margin:0 auto 16px;
+}
+/* --- COS 106 Hero polish --- */
+.eyebrow{
+  color:#d8b8ff;
+  font-size:1rem;
+  margin:0 0 4px;
+}
+.hero-name{
+  font-size:2.4rem;
+  font-weight:800;
+  margin:0;
+  background:linear-gradient(90deg,#ffd6f5,#cfa8ff,#ffd6f5);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 0 18px rgba(207,168,255,0.25);
+}
+.role{
+  color:#e6d4ff;
+  font-weight:600;
+  margin:8px 0 0;
+  letter-spacing:0.3px;
+}
+.tagline{
+  margin-top:14px;
+  color:#d0b8e8;
+}
+.hero-cta{
+  margin-top:28px;
+}
+.btn-primary{
+  box-shadow:0 6px 24px rgba(168,85,247,0.35);
+}
+
+/* --- Quick explore + COS 106 footer --- */
+.quick-explore{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:22px;
+  font-size:0.9rem;
+}
+.quick-explore a{
+  color:#d8b8ff;
+  text-decoration:none;
+  padding:8px 14px;
+  border:1px solid #3d2450;
+  border-radius:999px;
+  background:#1a0f22;
+  opacity:.9;
+}
+.quick-explore a:hover{
+  color:#fff;
+  background:#2b1b34;
+  opacity:1;
+}
+.site-footer{
+  margin-top:40px;
+  padding:24px 20px;
+  text-align:center;
+  font-size:0.85rem;
+  color:#a88bc4;
+  border-top:1px solid #3d2450;
+}
+.site-footer p{margin:6px 0}
